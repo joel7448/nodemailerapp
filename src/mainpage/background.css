@@ -1,0 +1,18 @@
+.background{
+    height: 100vh;
+    width:100vw;
+    background-image: url("https://blog.spoongraphics.co.uk/wp-content/uploads/2017/03/thumbnail-4.jpg");
+    background-size: cover;
+    overflow-y: scroll !important;
+
+}
+
+@media (min-width: 768px){
+    .background{
+        height: 100vh;
+        overflow-y: scroll !important;
+        
+        background-repeat: no-repeat;
+
+      }
+}

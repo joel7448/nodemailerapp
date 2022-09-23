@@ -37,10 +37,12 @@ return errors;
     onSubmit:async(values)=>{
 try{
 const register = await instance.post("/server/users/register",values)
+alert("Registered sucessfully!");
 console.log(register.data);
 navigate("/login");
 }
 catch(err){
+    alert("Failed to register");
     console.log("Registration unsuccessfull");
 }
 

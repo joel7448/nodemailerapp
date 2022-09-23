@@ -13,8 +13,10 @@
 .list{
 max-width: 100vw;
 
+
 overflow-x: hidden;
 }
+
 .list :nth-child(2n+0){
 cursor: pointer;
 }

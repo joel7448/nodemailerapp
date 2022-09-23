@@ -18,6 +18,8 @@ import { actionCreators } from "../Action-creators";
 import { useEffect } from "react"
 import instance from "../api/api";
 import { useNavigate } from "react-router-dom";
+import { Delete, RemoveRedEye } from "@mui/icons-material";
+import { IconButton, Tooltip } from "@mui/material";
 
 export default function AlignItemsList() {
 
@@ -53,6 +55,17 @@ const viewitem = async(id)=>{
 navigate(`/mailview/${id}`);
 }
 
+const handledelete =async (itemid)=>{
+  try{
+  await instance.delete(`server/email/mailitems/${itemid}`);
+  alert("successfully deleted");
+  }
+  catch(err){
+    console.log(err);
+    alert("Failed to delete");
+  }
+  fetchdata();
+}
 
 
 
@@ -71,7 +84,7 @@ navigate(`/mailview/${id}`);
     <List className="list" sx={{ width: '100%', bgcolor: 'background.paper' }}>
         { inbox.map((x)=>{
             return(
-                <><ListItem onClick={()=>{viewitem(x._id)}} alignItems="flex-start">
+                <><ListItem  alignItems="center">
         <ListItemAvatar>
           <Avatar alt={x.from} src="/static/images/avatar/1.jpg" />
         </ListItemAvatar>
@@ -91,7 +104,16 @@ navigate(`/mailview/${id}`);
             </React.Fragment>
           }
         />
-              
+        <Tooltip title="View"  onClick={()=>{viewitem(x._id)}}>
+          <IconButton>
+        <RemoveRedEye/>
+        </IconButton>
+        </Tooltip>
+        <Tooltip onClick={()=>{handledelete(x._id)}} title="Delete">
+          <IconButton>
+           <Delete/>  
+           </IconButton> 
+           </Tooltip>
       </ListItem>
       <Divider variant="inset" component="li" /></>
             )

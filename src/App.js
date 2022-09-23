@@ -11,6 +11,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './login/Login';
 import Newmail from './newmail/Newmail';
 import View from './view/View';
+import Sent from './sent/Sent';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Route path="/home" element={<Chats/>}/>
       <Route path="/newmail" element={<Newmail/>}/>
       <Route path="/mailview/:id" element={<View/>}/>
+     <Route path="/sent" element={<Sent/>}/>
     </Routes>
     
     </BrowserRouter>

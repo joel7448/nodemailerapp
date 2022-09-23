@@ -2,6 +2,7 @@ import { Button, TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import instance from '../api/api';
 import "./login.css"
 function Login() {
@@ -34,9 +35,11 @@ function Login() {
        localStorage.setItem("token",login.data.token);
        localStorage.setItem("user",login.data.username);
        console.log(login.data);
+       alert("login success")
         navigate("/home");
     }
     catch(err){
+        alert("Login failed");
         console.log(err);
     }
    
@@ -53,6 +56,7 @@ function Login() {
         <Button type="submit" className='loginbutton' variant="contained">Login</Button>
 
         </form>
+
         </div>
   )
 }

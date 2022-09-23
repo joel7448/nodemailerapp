@@ -41,20 +41,8 @@ const navigate = useNavigate();
    }
 
    const send = async()=>{
-    try{
-    const data =await  instance.get(`/server/email/sent/${localStorage.getItem('user')}`,{
-        headers: {
-            Authorization: `${localStorage.getItem("token")}`,
-          },
-    })
-    sent(data.data);
-    console.log(data.data);
    
-}
-catch(err){
-    console.log(err);
-}
-
+navigate("/sent");
 
    }
   return (
